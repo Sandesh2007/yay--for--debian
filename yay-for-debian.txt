@@ -2,7 +2,7 @@ yay() {
     if [ "$#" -eq 0 ]; then
         sudo apt update && sudo apt upgrade
     elif [ "$1" = "-h" ]; then
-        echo "Usage: yay [-s] [-S]"
+        echo "Usage: yay [-s](to search a package) [-S](to install a package)"
     else
         case "$1" in
             "-s")
