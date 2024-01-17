@@ -1,0 +1,22 @@
+yay() {
+    if [ "$#" -eq 0 ]; then
+        sudo apt update && sudo apt upgrade
+    elif [ "$1" = "-h" ]; then
+        echo "Usage: yay [-s] [-S]"
+    else
+        case "$1" in
+            "-s")
+                shift
+                sudo apt search "$@"
+                ;;
+            "-S")
+                shift
+                sudo apt install "$@"
+                ;;
+            *)
+                echo "Usage: yay [-s] [-S]"
+                return 1
+                ;;
+        esac
+    fi
+}
